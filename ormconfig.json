@@ -1,0 +1,4 @@
+{
+  "type": "sqlite",
+  "database": "src/shared/infra/typeorm/database.sqlite"
+}
