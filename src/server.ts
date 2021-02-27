@@ -1,6 +1,8 @@
+import 'reflect-metadata';
 import 'dotenv/config';
 import express from 'express';
 
+import '@shared/infra/typeorm/';
 import apiConfig from '@config/api';
 import routes from '@shared/infra/http/routes/routes';
 
