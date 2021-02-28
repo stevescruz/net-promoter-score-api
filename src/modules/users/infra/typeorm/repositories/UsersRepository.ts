@@ -13,10 +13,14 @@ class UsersRepository implements IUsersRepository {
   }
 
   public async create(data: ICreateUserDTO): Promise<User> {
-    const user = await this.sqliteRepository.create(data);
-    await this.sqliteRepository.save(user);
+    const user = this.sqliteRepository.create(data);
+    await this.save(user);
 
     return user;
+  }
+
+  public async save(user: User): Promise<User> {
+    return this.sqliteRepository.save(user);
   }
 }
 
