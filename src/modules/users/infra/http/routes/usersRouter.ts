@@ -1,12 +1,11 @@
 import { Router } from "express";
 
+import UserController from '@modules/users/infra/http/controllers/UserController';
+
 const usersRouter = Router();
 
-usersRouter.get('/', (request, response) => {
-  response.json({
-    id: '1e222291-7492-4155-8d49-64038e2e2932',
-    name: 'camilla',
-  });
-});
+const userController = new UserController();
+
+usersRouter.post('/', userController.create);
 
 export default usersRouter;
