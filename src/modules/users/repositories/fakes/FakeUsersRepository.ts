@@ -8,6 +8,11 @@ import User from "@modules/users/infra/typeorm/entities/User";
 class FakeUsersRepository implements IUsersRepository {
   private users: Array<User> = [];
 
+  public async findByEmail(email: string): Promise<User | undefined> {
+    const findUser = this.users.find(user => user.email === email);
+    return findUser;
+  }
+
   public async create(data: ICreateUserDTO): Promise<User> {
 
     const user = new User();
